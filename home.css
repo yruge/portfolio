@@ -183,10 +183,28 @@ body {
     margin-bottom: 2rem;
 }
 
-.card-1 img {
+
+/* .card-1 img {
     width: 25px;
     height: 25px;
     object-fit: contain;
+} */
+
+.big-logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.small-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.tech-stack {
+    display: flex;
+    align-items: center;
 }
 
 
