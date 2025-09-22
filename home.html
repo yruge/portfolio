@@ -17,18 +17,88 @@
 <body>
     <div class="container">
         <div class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <p class="small-text">Hi there, im</p>
-                    <h1>Jason <img src="images/Work PFP.jpg" alt="Profile Picture" class="profile-pic">
-                        <br>Julius Then
-                    </h1>
-                    <p class="long-text">A developer passionate about building <strong>seamless digital<br>
-                            experiences</strong> by harmonizing thoughtful <strong>user-interface<br></strong>
-                        design with clean, powerful <span class="auto-type"></span></p>
+            <div class="hero-content">
+                <p class="small-text">Hi there, im</p>
+                <h1>Jason
+                    <br>Julius Then
+                </h1>
+                <p class="long-text">A developer passionate about building <strong>seamless digital
+                        experiences</strong> by harmonizing thoughtful <strong>user-interface</strong>
+                    design with clean, powerful<br> <span class="auto-type"></span></p>
+
+                <div class="cta-section">
+                    <a href="#" class="cta-button-1">Get In Touch</a>
+                    <a href="assets/Jason Julius Then_CV.pdf" class="cta-button-2" download>CV
+                        <img src="images/download.png" alt="Download Icon" class="download-icon">
+                    </a>
                 </div>
 
-                <div class="social-icons">
+            </div>
+
+            <img src="images/Work PFP.jpg" alt="Profile Picture" class="profile-pic">
+        </div>
+
+        <hr class="styled-line">
+
+        <div class="section-1">
+            <h1 class="section-title">Portfolio.</h1>
+            <div class="card">
+                <div class="card-container">
+                    <div class="card-content">
+                        <img src="images/NextStep.png" alt="NextStep">
+
+                        <div class="card-content-info">
+                            <h2>UI | UX</h2>
+                            <h2>Website</h2>
+                        </div>
+                    </div>
+
+                    <div class="project-number">
+                        <p>01</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="line-section-1">
+
+        <div class="section-2">
+            <h1 class="section-title-1">Key Skills.</h1>
+
+            <div class="picker-container">
+                <div class="skills">
+                    <p>Software Engineering</p>
+                    <p>AI Model Training</p>
+                    <p>Front-end Developer</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="line-section-1">
+    </div>
+
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('.auto-type', {
+            strings: ["<strong>back-end logic.</strong>",
+                "<strong>efficient databases.</strong>",
+                "<strong>robust servers.</strong>",
+                "<strong>scalable solutions.</strong>"],
+            typeSpeed: 100,
+            backSpeed: 10,
+            loop: true
+        })
+    </script>
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- <div class="social-icons">
                     <a href="https://www.linkedin.com/in/jasonjuliusthen/" target="_blank">
                         <img src="images/linkedin_174857.png" alt="LinkedIn Icon" class="social-icon">
                     </a>
@@ -38,107 +108,4 @@
 
                     <a href="https://www.instagram.com/jasonjuliusthen/" target="_blank">
                         <img src="images/gmail_2335363.png" alt="Email Icon" class="social-icon">
-                </div>
-
-                <div class="cta-section">
-                    <a href="#" class="cta-button-1">Get In Touch</a>
-                    <a href="assets/Jason Julius Then_CV.pdf" class="cta-button-2" download>CV
-                        <img src="images/download.png" alt="Download Icon" class="download-icon">
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="section-1">
-            <div class="card">
-                <div class="card-1">
-                    <h1>NextStep</h1>
-                    <p class="project-type">FULL-STACK | WEBSITE</p>
-                    <p class="project-description">A platform that connects students with internships and<br>
-                        scholarships. I Engineered a full-stack provider dashboard<br> with complete CRUD capabilities
-                        using Google Firebase.<br></p>
-                    <div class="tech-stack">
-                        <img src="images/html-5_732212.png" alt="HTML" class=big-logo>
-                        <img src="images/css-3_732190 (1).png" alt="CSS" class=big-logo>
-                        <img src="images/js_5968292 (1).png" alt="JS" class=big-logo>
-                        <img src="images/google-firebase.webp" alt="Google Firebase" class=big-logo>
-                    </div>
-
-                    <a href="https://nextstep-chi.vercel.app/Pages/provider-dashboard.html" target="_blank"
-                        rel="noopener noreferrer" class="view-project">VIEW PROJECT</a>
-                </div>
-
-                <div class="card-2">
-                    <img src="images/NextStep.png" alt="Project Image" class="project-image">
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-1">
-                    <h1>Faster R-CNN</h1>
-                    <p class="project-type">MODEL TRAINING</p>
-                    <p class="project-description">I trained the Faster R-CNN and improved its mean<br> Average Precision (mAP) score to 62%. This
-                        project<br> strengthened my ability to learn and solve complex<br> problems in computer vision.
-                    </p>
-
-                    <div class="tech-stack">
-                    <img src="images/python-logo.png" alt="Python" class="big-logo">
-                    <img src="images/380-3800394_pytorch-logo.png" alt="Pytorch" class="big-logo">
-                    <img src="images/OpenCV_logo_black.svg.png" alt="OpenCV" class="big-logo">
-                    <img src="images/th.webp" alt="Numpy" class="big-logo">
-                </div>
-
-                </div>
-
-                <div class="card-2">
-                    <img src="images/Object-Detection.png" alt="Project Image" class="project-image">
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-1">
-                    <h1>Air Quality Monitor</h1>
-                    <p class="project-type">MODEL TRAINING</p>
-                    <p>This project trains a machine learning model on historical<br> air quality data to predict future carbon monoxide levels.<br> The trained model is then used to forecast air quality<br> conditions based on new, incoming data.</p>
-
-                     <div class="tech-stack">
-                    <img src="images/python-logo.png" alt="Python" class="big-logo">
-                     <img src="images/lockup.svg" alt="TensorFlow" class="small-logo">
-                    <img src="images/OSK.jpeg" alt="Keras" class="big-logo">
-                    <img src="images/scikit-learn-logo-65337c3f499ef-1200x675.webp" alt="Scikit-Learn" class="small-logo">
-                    <img src="images/pandas.svg" alt="Pandas" class="small-logo">
-                    <img src="images/NumPy_logo_2020.svg.png" alt="Numpy" class="small-logo">
-                    <img src="images/logo_dark.svg" alt="Matplotlib" class="small-logo">
-                    <img src="images/joblib_logo.svg" alt="Joblib" class="big-logo">
-                </div>
-
-                    <a href="#" class="view-project">VIEW PROJECT</a>
-                </div>
-
-                
-
-                <div class="card-2">
-                    <img src="images/output.png" alt="Project Image" class="project-image">
-                </div>
-            </div>
-        </div>
-
-        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-        <script>
-            var typed = new Typed('.auto-type', {
-                strings: ["<strong>back-end logic.</strong>",
-                    "<strong>efficient databases.</strong>",
-                    "<strong>robust servers.</strong>",
-                    "<strong>scalable solutions.</strong>"],
-                typeSpeed: 100,
-                backSpeed: 10,
-                loop: true
-            })
-        </script>
-    </div>
-
-</body>
-
-</html>
+                </div> -->
