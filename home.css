@@ -13,6 +13,7 @@ body {
 .container {
     max-width: 1440px;
     margin: 0 auto;
+
 }
 
 .hero {
@@ -28,6 +29,7 @@ body {
     font-size: 3.125rem;
     font-weight: 500;
     margin-bottom: 1.25rem;
+    font-family:'playfair display', sans-serif;
 }
 
 .profile-pic {
@@ -121,13 +123,55 @@ body {
     margin-left: 0.25rem;
 }
 
+.line {
+    width: 85%;
+    height: 2px;
+    background-color: solid black;
+    margin-bottom: 3rem;
+    position: absolute;
+    bottom: 0;
+}
+
 .section-1 {
     display: grid;
     grid-template-rows: 70vh 70vh 70vh;
     align-items: center;
-    padding: 0 4rem;
+    padding: 0 6.25rem;
     gap: 2rem;
 }
+
+.line-section-1 {
+    width: 85%;
+    height: 2px;
+    background-color: solid black;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.section-title,
+.section-title-1 {
+    font-family: 'playfair display' , sans-serif;
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.section-title-1 {
+    display: inline-flex;
+}
+
+.section-title {
+    padding: 0 6.25rem;
+}
+
+.section-2 {
+    padding: 0 6.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .card {
     display: flex;;
@@ -181,6 +225,13 @@ body {
     display: flex;
     gap:1rem;
     margin-bottom: 2rem;
+}
+
+.section-2 p {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 2rem;
 }
 
 
