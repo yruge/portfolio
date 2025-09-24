@@ -1,5 +1,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #F7F7F7
 }
 
 * {
@@ -34,30 +35,36 @@ body {
 
 .profile-pic {
     height: 100vh;
-    object-fit: cover   ;
+    object-fit: cover;
     border-radius: 5px;
     flex: 1;
     max-width: 50%;
-    background-color: #636363;
+    position: relative;
+    /* background-color: #636363; */
 }
 
 .small-text {
     font-size: 12px;
     font-weight: 500;
     position: absolute;
-    top: 7.5rem;
+    top: 9.5rem;
     /* left: 5.5rem; */
 }
 
 .long-text,
 .typing-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 300;
 }
 
 .long-text {
+
     margin-bottom: 1.25rem;
     line-height: 1.6;
+}
+
+.line-section-1 {
+    margin: 3rem 0;
 }
 
 .long-text strong {
@@ -129,8 +136,8 @@ body {
     display: grid;
     grid-template-rows: 70vh 70vh 70vh;
     align-items: center;
-    gap: 2rem;
-    background-color: #636363;
+    gap: 4rem;
+    /* background-color: #636363; */
 }
 
 .card-container {
@@ -142,7 +149,7 @@ body {
     display: block;
     justify-content: space-between;
     height: 70vh;
-    background-color: #F8F8F8;
+    background-color: white;    
     box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.1);
     animation: appear linear;
     animation-timeline: view();
@@ -156,22 +163,28 @@ body {
 
 .card-content-info h2 {
     font-size: 1rem;
-    font-family: 'playfair display', sans-serif;
+    font-family: 'montserrat', sans-serif;
+    font-weight: 500;
+    margin-top: 0.5rem;
 }
 
-.project-number {
-    background-color: blue;
+.card .card-container p {
+    font-size: 12px;
+    /* font-family: 'playfair display', 'montserrat';
+    opacity: 60%;
+    margin: 0 !important;
+    background-color: aqua; */
 }
 
-.project-number p {
-    font-size: 4rem;
-    font-family: 'playfair display', sans-serif;
+.card-content {
+    width: 900px;
 }
 
 .card-content img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: transparent;
 }
 
 
