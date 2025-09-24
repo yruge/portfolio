@@ -5,25 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Custom Cursor Logic ---
     const customCursor = document.getElementById('custom-cursor');
     const projectHoverAreas = document.querySelectorAll('.card-container');
+    
+    // Check if the device is likely a touch device based on screen width
+    const isTouchDevice = window.matchMedia("(max-width: 768px)").matches;
 
-    // Move the cursor to follow the mouse pointer across the whole page
-    document.addEventListener('mousemove', (e) => {
-        // Update the position of the custom cursor
-        customCursor.style.left = `${e.clientX}px`;
-        customCursor.style.top = `${e.clientY}px`;
-    });
-
-    // Add the '.visible' class on hover to show the cursor
-    projectHoverAreas.forEach(area => {
-        area.addEventListener('mouseenter', () => {
-            customCursor.classList.add('visible');
+    if (!isTouchDevice) {
+        // Move the cursor to follow the mouse pointer across the whole page
+        document.addEventListener('mousemove', (e) => {
+            // Update the position of the custom cursor
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
         });
 
-        // Remove the '.visible' class when the mouse leaves
-        area.addEventListener('mouseleave', () => {
-            customCursor.classList.remove('visible');
+        // Add the '.visible' class on hover to show the cursor
+        projectHoverAreas.forEach(area => {
+            area.addEventListener('mouseenter', () => {
+                customCursor.classList.add('visible');
+            });
+
+            // Remove the '.visible' class when the mouse leaves
+            area.addEventListener('mouseleave', () => {
+                customCursor.classList.remove('visible');
+            });
         });
-    });
+    }
+
 
     // --- Modal Logic (This part remains the same) ---
     const openModalButtons = document.querySelectorAll('.card-content');
