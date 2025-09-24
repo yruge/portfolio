@@ -10,10 +10,15 @@ body {
     text-decoration: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 6.25rem;
+    padding: 0 6.25rem 6.25rem 6.25rem;
+    position: relative;
 }
 
 .hero {
@@ -72,7 +77,7 @@ body {
 }
 
 .hero-content {
-    flex:1;
+    flex: 1;
     min-width: 50%;
     /* background-color: bisque; */
 }
@@ -102,6 +107,13 @@ body {
     border: none;
 }
 
+button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+}
+
 .cta-button-2 {
     display: inline-flex;
     align-items: center;
@@ -112,7 +124,7 @@ body {
 }
 
 .cta-button-1,
-.cta-button-2{
+.cta-button-2 {
     padding: 0.625rem 1.875rem;
     font-size: 1.25rem;
     font-weight: 600;
@@ -128,8 +140,8 @@ body {
 
 .section-title {
     font-family: 'playfair display', sans-serif;
-    margin-bottom: 2rem;
-    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
 }
 
 .card {
@@ -138,6 +150,11 @@ body {
     align-items: center;
     gap: 4rem;
     /* background-color: #636363; */
+}
+
+.modal img {
+    height: 25px;
+    width: 25px;
 }
 
 .card-container {
@@ -149,11 +166,48 @@ body {
     display: block;
     justify-content: space-between;
     height: 70vh;
-    background-color: white;    
+    background-color: white;
     box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.1);
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0 cover 50% ;
+    animation-range: entry 0 cover 40%;
+}
+
+.modal a {
+    color: white;
+    background-color: black;
+    padding: 0.5rem 1rem;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    background-color: white;
+    width: 600px;
+    max-width: 100%;
+    padding: 2rem;
+    text-align: center;
+    z-index: 100;
+    position: relative;
 }
 
 .card-content-info {
@@ -177,7 +231,9 @@ body {
 }
 
 .card-content {
-    width: 900px;
+    max-width: 900px;
+    width: 100%;
+    /* background-color: aquamarine; */
 }
 
 .card-content img {
@@ -187,6 +243,124 @@ body {
     background: transparent;
 }
 
+.card-container:hover {
+    cursor: none;
+}
+
+#custom-cursor.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal h1,
+.modal h2 {
+    margin: 0;
+    font-family: 'playfair display', sans-serif;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.modal h1 {
+    margin-bottom: 1rem;
+}
+
+.modal h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    opacity: 50%;
+}
+
+.modal-container .modal p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tech-stack {
+    margin-bottom: 2rem;
+}
+
+.tech-stack img {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+}
+
+.big-logo {
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.close-x-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.close-x-btn:hover {
+    color: rgb(38, 97, 215);
+}
+
+
+#custom-cursor {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    text-align: center;
+    z-index: 100000;
+    pointer-events: none;
+    /* Crucial: lets you click through it */
+
+    /* Start hidden and small */
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.section-3-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-3-content p {
+    font-style: 'playfair display', sans-serif;
+}
+
+
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.socials a {
+    color: black;
+    transition: 0.3s ease-out;
+}
+
+.socials a:hover {
+    color: rgb(85, 85, 255);
+}
+
+.copyright {
+    position: absolute;
+    bottom: 15px;
+    left: 6.25rem;
+}
 
 
 
@@ -195,6 +369,7 @@ body {
         opacity: 0;
         scale: 0.5;
     }
+
     to {
         opacity: 1;
         scale: 1;

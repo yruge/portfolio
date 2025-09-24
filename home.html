@@ -15,10 +15,11 @@
 </head>
 
 <body>
+    <div id="custom-cursor">Click Me</div>
     <div class="container">
         <div class="hero">
             <div class="hero-content">
-                <p class="small-text">Hi there, im</p>
+
                 <h1>Jason
                     <br>Julius Then
                 </h1>
@@ -27,7 +28,7 @@
                     design with clean, powerful <span class="auto-type"></span></p>
 
                 <div class="cta-section">
-                    <a href="#" class="cta-button-1">Get In Touch</a>
+                    <a href="#socials-section" class="cta-button-1">Get In Touch</a>
                     <a href="assets/Jason Julius Then_CV.pdf" class="cta-button-2" download>CV
                         <img src="images/download.png" alt="Download Icon" class="download-icon">
                     </a>
@@ -44,8 +45,7 @@
             <h1 class="section-title">Portfolio.</h1>
             <div class="card">
                 <div class="card-container">
-
-                    <div class="card-content">
+                    <div class="card-content" data-target="#modal-project-1">
                         <img src="images/NextStep.png" alt="NextStep">
 
                         <!-- <div class="card-content-info">
@@ -61,7 +61,7 @@
 
                 <div class="card-container">
 
-                    <div class="card-content">
+                    <div class="card-content" data-target="#modal-project-2">
                         <img src="images/Object-Detection.png" alt="NextStep">
 
                         <!-- <div class="card-content-info">
@@ -77,7 +77,7 @@
 
                 <div class="card-container">
 
-                    <div class="card-content">
+                    <div class="card-content" data-target="#modal-project-3">
                         <img src="images/Screenshot 2025-09-23 200928.png" alt="NextStep">
 
                         <!-- <div class="card-content-info">
@@ -93,7 +93,7 @@
 
             <hr class="line-section-1">
 
-            <div class="section-2">
+            <!-- <div class="section-2">
                 <h1 class="section-title-1">Key Skills.</h1>
 
                 <div class="picker-container">
@@ -103,10 +103,91 @@
                         <p>Front-end Developer</p>
                     </div>
                 </div>
+            </div> -->
+
+        </div>
+
+        <div class="section-3" id="socials-section">
+
+            <div class="section-3-content">
+                <p>Let's get in touch.</p>
+
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/jasonjuliusthen/" target="_blank" class="arrow">LinkedIn &nearr;</a>
+                    <a href="https://github.com/yruge/" target="_blank" class="arrow">Github &nearr;</a>
+                    <a href="mailto:jason.then@binus.ac.id" class="arrow">Email &nearr;</a>
+                </div>
             </div>
 
-            <hr class="line-section-1">
         </div>
+
+        <p class="copyright">&copy; 2025 Jason Julius Then</p>
+
+        <div class="modal-container" id="modal-project-1">
+            <div class="modal">
+                <h1>NextStep</h1>
+                <h2>FULL-STACK | WEBSITE</h2>
+                <p>A platform that connects students with internships and
+                    scholarships. I Engineered a full-stack provider dashboard with complete CRUD capabilities
+                    using Google Firebase.</p>
+                <div class="tech-stack">
+                    <img src="images/html-5_732212.png" alt="Html Logo">
+                    <img src="images/css-3_732190 (1).png" alt="Css Logo">
+                    <img src="images/js_5968292 (1).png" alt="Js Logo">
+                    <img src="images/firebase-logo-png-transparent.png" alt="Firebase">
+                </div>
+
+                <a href="https://nextstep-chi.vercel.app/Pages/provider-dashboard.html" target="_blank">View
+                    Project</a>
+                <button class="close-x-btn">&times;</button>
+            </div>
+        </div>
+
+        <div class="modal-container" id="modal-project-2">
+            <div class="modal">
+                <h1>Faster R-CNN</h1>
+                <h2>Model Training</h2>
+                <p>I trained the Faster R-CNN and improved its mean Average
+                    Precision (mAP) score to 62%. This
+                    project strengthened my ability to learn and solve complex problems in computer vision.</p>
+                <div class="tech-stack">
+                    <img src="images/python-logo.png" alt="Python" class="big-logo">
+                    <img src="images/380-3800394_pytorch-logo.png" alt="Pytorch" class="big-logo">
+                    <img src="images/OpenCV_logo_black.svg.png" alt="OpenCV" class="big-logo">
+                    <img src="images/th.webp" alt="Numpy" class="big-logo">
+                </div>
+
+                <a href="#" target="_blank">View
+                    Project</a>
+                <button class="close-x-btn">&times;</button>
+            </div>
+        </div>
+
+        <div class="modal-container" id="modal-project-3">
+            <div class="modal">
+                <h1>Air Quality Monitor</h1>
+                <h2>Model Training</h2>
+                <p>This project trains a machine learning model on historical air quality data to predict future
+                    carbon monoxide levels. The trained model is then used to forecast air quality
+                    conditions based on new, incoming data. [group-project] </p>
+                <div class="tech-stack">
+                    <img src="images/python-logo.png" alt="Python" class="big-logo">
+                    <img src="images/lockup.svg" alt="TensorFlow" class="small-logo">
+                    <img src="images/OSK.jpeg" alt="Keras" class="big-logo">
+                    <img src="images/scikit-learn-logo-65337c3f499ef-1200x675.webp" alt="Scikit-Learn"
+                        class="small-logo">
+                    <img src="images/pandas.svg" alt="Pandas" class="small-logo">
+                    <img src="images/NumPy_logo_2020.svg.png" alt="Numpy" class="small-logo">
+                    <img src="images/logo_dark.svg" alt="Matplotlib" class="small-logo">
+                    <img src="images/joblib_logo.svg" alt="Joblib" class="big-logo">
+                </div>
+
+                <a href="https://github.com/yruge/AQM_AI" target="_blank">View
+                    Project</a>
+                <button class="close-x-btn">&times;</button>
+            </div>
+        </div>
+
 
 
 
@@ -124,6 +205,7 @@
             })
         </script>
 
+        <script src="home.js"></script>
 </body>
 
 </html>
