@@ -48,6 +48,17 @@ body {
     /* left: 5.5rem; */
 }
 
+.profile-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-inner-info h2 {
+    font-weight: 500;
+    opacity: 40%;
+}
+
 .hero-container {
     /* width: 100%; */
     width: 100%;
