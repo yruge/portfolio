@@ -62,10 +62,11 @@ body {
 }
 
 .hero-container {
-    /* width: 100%; */
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     position: relative;
-    margin: 0 auto;
     /* background-color: tomato; */
 }
 
@@ -385,6 +386,12 @@ body {
     .copyright {
         left: 1rem;
     }
+
+     .section-title,
+    .section-title-1 {
+        margin-bottom: 1rem;
+    }
+
 }
 
 @media (max-width: 768px) {
