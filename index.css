@@ -17,6 +17,7 @@ body {
     position: relative;
 }
 
+
 .hero {
     display: flex;
     align-items: center;
@@ -27,7 +28,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3.125rem;
+    font-size: clamp(1rem, 0.393rem + 3.04vw, 3.125rem);
     font-weight: 500;
     margin-bottom: 1.25rem;
     font-family:'playfair display', sans-serif;
@@ -55,6 +56,7 @@ body {
 }
 
 .profile-inner-info h2 {
+    font-size: clamp(1rem, 0.839rem + 0.8vw, 1.563rem);
     font-weight: 500;
     opacity: 40%;
 }
@@ -67,7 +69,7 @@ body {
     /* background-color: tomato; */
 }
 
-.hero-content img {
+.profile-info img {
     height: 120px;
     width: 95px;
     object-fit: cover;
@@ -76,7 +78,7 @@ body {
 
 .long-text,
 .typing-text {
-    font-size: 1.5625rem;
+    font-size: clamp(1rem, 0.839rem + 0.8vw, 1.563rem);
     font-weight: 300;
 }
 
@@ -113,11 +115,16 @@ body {
     width: 30px;
 }
 
+/* .cta-section {
+    display: flex;
+    gap: 1rem;
+} */
 
 .cta-button-1 {
     color: white;
     background-color: black;
     border: none;
+    margin-right: 1rem;
 }
 
 .cta-button-2 {
@@ -126,13 +133,13 @@ body {
     color: black;
     background-color: transparent;
     border: 1px solid black;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
 }
 
 .cta-button-1,
 .cta-button-2{
     padding: 0.625rem 1.875rem;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 0.929rem + 0.36vw, 1.25rem);
     font-weight: 600;
     border-radius: 1px;
     cursor: pointer;
@@ -155,7 +162,7 @@ body {
 
 .section-1 {
     display: grid;
-    grid-template-rows: 70vh 70vh 70vh;
+    grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     padding: 0 6.25rem;
     gap: 2rem;
@@ -173,7 +180,7 @@ body {
 .section-title,
 .section-title-1 {
     font-family: 'playfair display' , sans-serif;
-    font-size: 4rem;
+    font-size: clamp(1rem, 0.143rem + 4.29vw, 4rem);
     font-weight: 500;
     margin-bottom: 3rem;
 }
@@ -195,23 +202,28 @@ body {
 
 
 .card {
-    display: flex;;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem;
-    height: 70vh;
+    overflow: hidden;
     margin: 2rem 0;
+    max-width: 1000px;
     background-color: #F8F8F8;
     box-shadow: 2px 4px 8px 4px rgba(0, 0, 0, 0.1);
     border: 3px solid #EAEAEA;
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0 cover 50% ;
+    animation-range: entry 0 cover 50%;
+}
 
+.card-1,
+.card-2 {
+    flex:1;
+    min-width: 0;
 }
 
 .card-2 {
-    width: 100%;
     max-width: 500px;
     aspect-ratio: 4/3;
     border-radius: 8px;
@@ -252,7 +264,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 1rem;
-    font-size: 2rem;
+    font-size: clamp(1rem, 0.714rem + 1.43vw, 2rem);
 }
 
 
@@ -327,6 +339,63 @@ body {
 
 .socials a:hover {
     color: rgb(81, 81, 219);
+}
+
+@media (max-width: 600px)
+{
+    .profile-info img {
+        width: 65px;
+        height: 90px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;   
+    }
+
+    .profile-info h1 {
+        margin-bottom: 0.5rem;
+    }
+
+    .long-text {
+        text-align: center;
+    }
+
+    .cta-section {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .section-title,
+    .section-title-1 {
+        margin-bottom: 1rem;
+    }
+    .card {
+        flex-direction: column-reverse;
+    }
+
+    .big-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .small-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .card-1 {
+        text-align: center;
+    }
+
+    .tech-stack {
+        justify-content: center;
+    }
 }
 
 
