@@ -118,16 +118,15 @@ body {
     width: 30px;
 }
 
-/* .cta-section {
+.cta-section {
     display: flex;
     gap: 1rem;
-} */
+}
 
 .cta-button-1 {
     color: white;
     background-color: black;
     border: none;
-    margin-right: 1rem;
 }
 
 .cta-button-2 {
@@ -141,7 +140,7 @@ body {
 
 .cta-button-1,
 .cta-button-2 {
-    padding: 0.625rem 1.875rem;
+    padding: 0.625em 1.875em;
     font-size: clamp(1rem, 0.929rem + 0.36vw, 1.25rem);
     font-weight: 600;
     border-radius: 1px;
