@@ -258,9 +258,13 @@ html {
 
 .tech-stack {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
 }
+
+
+
 
 .section-2 p {
     display: flex;
