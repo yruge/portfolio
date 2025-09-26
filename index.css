@@ -1,6 +1,9 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #F5F0F6;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -382,6 +385,11 @@ body {
         justify-content: center;
     }
 
+    .profile-inner-info h1,
+    .profile-inner-info h2 {
+        text-align: center;
+    }
+
     .copyright {
         left: 1rem;
     }
@@ -396,6 +404,11 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 2rem;
+    }
+
+     .profile-inner-info h1,
+    .profile-inner-info h2 {
+        text-align: center;
     }
 
     .hero {
