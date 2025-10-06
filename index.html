@@ -14,6 +14,10 @@
 </head>
 
 <body>
+
+    <div class="image-preview-container">
+        <img src="" alt="Project preview" class="preview-img">
+    </div>
     <div class="container">
 
         <nav class="main-nav">
@@ -45,7 +49,7 @@
 
         <main>
             <section class="projects" id="projects">
-                <div class="project-item">
+                <div class="project-item" data-image="images/NextStep.png">
                     <div class="project-header">
                         <h3>01. NextStep</h3>
                         <div class="project-tags">FULL-STACK | WEBSITE</div>
@@ -59,7 +63,7 @@
                 </div>
 
                 <div class="project-item">
-                    <div class="project-header">
+                    <div class="project-header" data-image="images/Object-Detection.png">
                         <h3>02. Faster R-CNN</h3>
                         <div class="project-tags">MODEL TRAINING</div>
                     </div>
@@ -73,7 +77,7 @@
                 </div>
 
                 <div class="project-item">
-                    <div class="project-header">
+                    <div class="project-header" data-image="images/output.png">
                         <h3>03. Air Quality Monitor</h3>
                         <div class="project-tags">MODEL TRAINING</div>
                     </div>
@@ -150,6 +154,31 @@
             typeSpeed: 70,
             backSpeed: 20,
             loop: true
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectItems = document.querySelectorAll('.project-item');
+            const previewContainer = document.querySelector('.image-preview-container');
+            const previewImage = previewContainer.querySelector('.preview-img');
+
+            projectItems.forEach(item => {
+                // When the mouse enters a project item
+                item.addEventListener('mouseenter', () => {
+                    const imagePath = item.getAttribute('data-image');
+                    
+                    // Set the image source and make the container visible
+                    previewImage.src = imagePath;
+                    previewContainer.classList.add('visible');
+                });
+
+                // When the mouse leaves a project item
+                item.addEventListener('mouseleave', () => {
+                    // Hide the container
+                    previewContainer.classList.remove('visible');
+                });
+            });
         });
     </script>
 </body>

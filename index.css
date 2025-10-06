@@ -68,6 +68,48 @@ a:hover {
     color: #808080;
 }
 
+/* --- Add this CSS to your index.css file --- */
+
+/* Optional: Add a cursor to show the project items are interactive */
+.project-item {
+    cursor: pointer;
+}
+
+/* Style for the pop-up image container */
+.image-preview-container {
+    /* Hides it by default and positions it */
+    opacity: 0;
+    visibility: hidden;
+    position: fixed; /* Floats on top of the page content */
+    top: 50%;
+    left: 65%; /* Adjust to position it next to your project list */
+    transform: translateY(-50%);
+    z-index: 100;
+
+    /* Appearance */
+    width: 400px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    /* Smooth fade transition */
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* This class is added by JavaScript to show the container */
+.image-preview-container.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensures the image inside fills the container */
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This prevents the image from stretching */
+}
+
 /* ======== HEADER / HERO SECTION ======== */
 .hero {
     padding-top: 0;
