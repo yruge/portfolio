@@ -107,7 +107,7 @@ a:hover {
 .preview-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This prevents the image from stretching */
+    object-fit: contain; /* This prevents the image from stretching */
 }
 
 /* ======== HEADER / HERO SECTION ======== */
@@ -278,14 +278,14 @@ a:hover {
 
     /* --- Nav Bar --- */
     .main-nav {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         gap: 1.5rem;
         padding: 1.5rem 1rem;
     }
 
     .nav-right {
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
     }
 
