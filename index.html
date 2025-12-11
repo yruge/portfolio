@@ -51,18 +51,7 @@
             <section class="projects" id="projects">
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>01. Card Shop</h3>
-                        <div class="project-tags">BACK-END | WEBSITE </div> 
-                    </div>
-                    <div class="project-details" data-image="images/card_information-1.jpg">
-                        <p>This project is a back-end application for an online card shop, featuring user authentication, product management, and a shopping cart.</p>
-                        <a href="https://github.com/yruge/Card-Shop" target="_blank" class="project-link">View Project
-                            &nearr;</a>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>02. NextStep</h3>
+                        <h3>01. NextStep</h3>
                         <div class="project-tags">FULL-STACK | WEBSITE</div>
                     </div>
                     <div class="project-details" data-image="images/NextStep.png">
@@ -73,35 +62,63 @@
                     </div>
                 </div>
 
-                 <div class="project-item">
-                    <div class="project-header">
-                        <h3>03. SoleSense</h3>
-                        <div class="project-tags">UI/UX | WEBSITE</div>
-                    </div>
-                    <div class="project-details" data-image="images/SoleSenses.png">
-                        <p>E-commerce platform for sneaker enthusiasts, featuring a sleek design and user-friendly interface.</p>
-                        <a href="https://github.com/jason32456/AOL_HCI" target="_blank"
-                            class="project-link">View Project &nearr;</a>
-                    </div>
-                </div>
-
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>04. Faster R-CNN</h3>
+                        <h3>02. Faster R-CNN</h3>
                         <div class="project-tags">MODEL TRAINING</div>
                     </div>
                     <div class="project-details" data-image="images/TrainingResults.png">
                         <p>Trained the Faster R-CNN model and improved its mean Average Precision (mAP) score to 62%.
                             This project strengthened my ability to solve complex problems in computer vision.
                         </p>
-                        <a href="https://github.com/yruge/Faster-R-CNN-Results" target="_blank" class="project-link">View Results &nearr;</a>
+                        <a href="https://github.com/yruge/Faster-R-CNN-Results" target="_blank"
+                            class="project-link">View Results &nearr;</a>
                     </div>
 
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>05. Air Quality Monitor</h3>
+                        <h3>03. Card Shop</h3>
+                        <div class="project-tags">BACK-END | WEBSITE </div>
+                    </div>
+                    <div class="project-details" data-image="images/card_information-1.jpg">
+                        <p>This project is a back-end application for an online card shop, featuring user
+                            authentication, product management, and a shopping cart.</p>
+                        <a href="https://github.com/yruge/Card-Shop" target="_blank" class="project-link">View Project
+                            &nearr;</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>04. To-do List</h3>
+                        <div class="project-tags">REACT WEBSITE</div>
+                    </div>
+                    <div class="project-details" data-image="images/to-do-list.png">
+                        <p>A simple to-do list app built with the React Library</p>
+                        <a href="https://yruge-todo.vercel.app" target="_blank" class="project-link">View
+                            Project &nearr;</a>
+                    </div>
+                </div>
+
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>05. SoleSense</h3>
+                        <div class="project-tags">UI/UX | WEBSITE</div>
+                    </div>
+                    <div class="project-details" data-image="images/SoleSenses.png">
+                        <p>E-commerce platform for sneaker enthusiasts, featuring a sleek design and user-friendly
+                            interface.</p>
+                        <a href="https://github.com/jason32456/AOL_HCI" target="_blank" class="project-link">View
+                            Project &nearr;</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>06. Air Quality Monitor</h3>
                         <div class="project-tags">MODEL TRAINING</div>
                     </div>
                     <div class="project-details" data-image="images/output-co.png">
@@ -111,11 +128,23 @@
                             &nearr;</a>
                     </div>
                 </div>
+
+                  <div class="project-item">
+                    <div class="project-header">
+                        <h3>07. Prime Number Checker</h3>
+                        <div class="project-tags">REACT WEBSITE</div>
+                    </div>
+                    <div class="project-details" data-image="images/prime-number-checker.png">
+                        <p>This project receives user input and validates wether its a prime number or not.</p>
+                        <a href="https://prime-number-test.vercel.app" target="_blank" class="project-link">View Project
+                            &nearr;</a>
+                    </div>
+                </div>
             </section>
 
             <section class="skills" id="skills">
                 <div class="skills-grid">
-                     <div class="skill-item">
+                    <div class="skill-item">
                         <div class="skill-icon-wrapper icon-purple">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -127,7 +156,7 @@
                         <h3>Full-stack delivery</h3>
                         <p>Scalable full-stack solutions, from front-end components to backend database integration</p>
                     </div>
-                    
+
                     <div class="skill-item">
                         <div class="skill-icon-wrapper icon-green">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -190,7 +219,7 @@
                 // When the mouse enters a project item
                 item.addEventListener('mouseenter', () => {
                     const imagePath = item.getAttribute('data-image');
-                    
+
                     // Set the image source and make the container visible
                     previewImage.src = imagePath;
                     previewContainer.classList.add('visible');
