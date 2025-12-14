@@ -1,0 +1,321 @@
+/* ======== GLOBAL STYLES ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem 4rem 2rem;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #808080;
+}
+
+/* ======== MAIN NAVIGATION BAR ======== */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 45px;  /* Corrected dimensions */
+    height: 45px; /* Corrected dimensions */
+    border-radius: 50%; /* Ensures a perfect circle */
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+}
+
+.nav-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.nav-right {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-right a {
+    font-weight: 400;
+    color: #808080;
+}
+
+/* --- Add this CSS to your index.css file --- */
+
+/* Optional: Add a cursor to show the project items are interactive */
+.project-item {
+    cursor: pointer;
+}
+
+/* Style for the pop-up image container */
+.image-preview-container {
+    /* Hides it by default and positions it */
+    opacity: 0;
+    visibility: hidden;
+    position: fixed; /* Floats on top of the page content */
+    top: 50%;
+    left: 65%; /* Adjust to position it next to your project list */
+    transform: translateY(-50%);
+    z-index: 100;
+
+    /* Appearance */
+    width: 400px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    /* Smooth fade transition */
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* This class is added by JavaScript to show the container */
+.image-preview-container.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensures the image inside fills the container */
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* This prevents the image from stretching */
+}
+
+/* ======== HEADER / HERO SECTION ======== */
+.hero {
+    padding-top: 0;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 4rem;
+}
+
+.hero-info {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-info h1 {
+    font-size: 2.5rem; /* Using the larger size from your overrides */
+    font-weight: 600;
+}
+
+.hero-info h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #808080;
+}
+
+.hero-intro {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 70ch;
+}
+
+.hero-cta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-button {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 1px solid #000000;
+    font-size: 0.9rem;
+}
+
+.cta-button.primary {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.cta-button.primary:hover {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: #000000;
+}
+
+.cta-button.secondary:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* ======== SKILLS SECTION ======== */
+.skills {
+    padding: 4rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.skill-item h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item p {
+    color: #808080;
+}
+
+.skill-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Icon Colors */
+.skill-icon-wrapper.icon-green { background-color: #e6f9f0; }
+.skill-icon-wrapper.icon-green svg { stroke: #00cc66; }
+.skill-icon-wrapper.icon-purple { background-color: #f0ebf9; }
+.skill-icon-wrapper.icon-purple svg { stroke: #9966ff; }
+.skill-icon-wrapper.icon-yellow { background-color: #fff8e6; }
+.skill-icon-wrapper.icon-yellow svg { stroke: #ffaa00; }
+
+/* ======== PROJECTS SECTION ======== */
+.project-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.project-header h3 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.project-tags {
+    font-size: 0.875rem;
+    color: #808080;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-details p {
+    margin-bottom: 1.5rem;
+    max-width: 65ch;
+}
+
+.project-link {
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* ======== FOOTER / CONTACT SECTION ======== */
+.contact {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    font-weight: 500;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    color: #808080;
+}
+
+/* ================================================= */
+/* =========== CONSOLIDATED RESPONSIVE STYLES ====== */
+/* ================================================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    /* --- Nav Bar --- */
+    .main-nav {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .nav-right {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .nav-name {
+        font-size: 1rem;
+    }
+
+    /* --- Hero Section --- */
+    .hero-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    /* --- Skills Section --- */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    /* --- Projects Section --- */
+    .project-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* --- Contact Section --- */
+    .contact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+}
