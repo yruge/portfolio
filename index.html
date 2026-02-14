@@ -13,10 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    </style>
 </head>
 
 <body>
-
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home" class="active">Home</a></li>
@@ -38,11 +40,14 @@
             </div>
         </div>
     </nav>
-
+    
     <main class="hero-container" id="home">
 
         <div class="profile-badge">
-            <img src="images/Jason Julius Then (1).jpg" alt="Profile" class="avatar">
+            <div class="avatar-box">
+
+                <img src="images/Jason Julius Then (1).jpg" alt="Profile" class="avatar">
+            </div>
             <div class="profile-info">
                 <span class="name">Jason Julius Then</span>
                 <span class="role">Developer</span>
@@ -51,15 +56,24 @@
 
         <h1>
             A developer passionate about building seamless digital experiences by harmonizing thoughtful
-            user-interface design with clean, powerful scalable solutions.
+            user-interface design with clean, powerful and scalable solutions.
         </h1>
 
         <div class="cta-group">
             <a href="#projects" class="btn btn-primary">
                 <i class="fas fa-sparkles"></i> View Projects
             </a>
-            <a href="assets/Resume (5).pdf" class="btn btn-secondary" download>
-                Download CV
+
+            <a href="assets/Resume (5).pdf" class="button-download" download>
+                <ul>
+                    <li>Downloading</li>
+                    <li>Download CV</li>
+                    <li>Downloading</li>
+                    <li>Open File</li>
+                </ul>
+                <div>
+                    <svg viewBox="0 0 24 24"></svg>
+                </div>
             </a>
         </div>
 
@@ -378,6 +392,67 @@
                     navbar.classList.add('scrolled');
                 } else { // If back at the top
                     navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const button = document.querySelector('.button-download');
+            if (!button) return;
+
+            // Helper: Draw the curve for the arrow
+            function getPath(y, smoothing) {
+                let points = [
+                    [4, 8],           // Left point (Widened)
+                    [12, y + 8],      // Tip point (Centered in 24px viewbox)
+                    [20, 8]           // Right point (Widened)
+                ];
+                let d = points.reduce((acc, point, i, a) => {
+                    if (i === 0) return `M ${point[0]},${point[1]}`;
+                    let cpx = point[0] - (point[0] - a[i - 1][0]) / 2;
+                    let cpy = (point[1] + a[i - 1][1]) / 2;
+                    if (i === 1) cpy += smoothing;
+                    return `${acc} Q ${cpx},${cpy} ${point[0]},${point[1]}`;
+                }, '');
+                return `<path d="${d}" />`;
+            }
+
+            let svg = button.querySelector('svg');
+            let duration = 3000;
+
+            // Draw initial arrow (larger size)
+            svg.innerHTML = getPath(8, 0);
+
+            button.addEventListener('click', e => {
+                // e.preventDefault(); // Uncomment to test without downloading
+
+                if (!button.classList.contains('loading')) {
+                    button.classList.add('loading');
+
+                    let arrowState = { y: 8, smoothing: 0 };
+
+                    // 1. Flatten Arrow
+                    gsap.to(arrowState, {
+                        smoothing: 5,
+                        duration: .2,
+                        onUpdate: () => svg.innerHTML = getPath(arrowState.y, arrowState.smoothing)
+                    });
+
+                    // 2. Bounce Down
+                    gsap.to(arrowState, {
+                        y: 16,
+                        duration: .8,
+                        delay: .2,
+                        ease: "elastic.out(1, 0.4)",
+                        onUpdate: () => svg.innerHTML = getPath(arrowState.y, arrowState.smoothing)
+                    });
+
+                   
+                    setTimeout(() => {
+                        svg.innerHTML = `<path d="M 5,12 L 10,17 L 19,8" />`;
+                    }, duration / 2);
                 }
             });
         });
