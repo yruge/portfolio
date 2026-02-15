@@ -100,6 +100,7 @@ body {
 
 /* HERO CONTAINER */
 .hero-container {
+    position: relative;
     border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
     max-width: 528px;
@@ -109,20 +110,26 @@ body {
     flex-direction: column;
     min-height: 80vh;
     padding: 120px 20px 40px 20px;
+    /* background-color: #EEEEEE; */
+    background-color: #f5f5f7;
+    /* background-color: #1d1d1d; */
 }
 
 /* PROFILE BADGE */
 .profile-badge {
+    /* position: relative; */
     display: flex;
+    min-height: 60vh;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
+    gap: 1.5rem;
+    margin-bottom: 14rem;
 }
 
 .avatar-box {
-    width: 60px;  
-    height: 60px;
-    border-radius: 14px; 
+    width: 120px;  
+    height: 150px;
+    border-radius: 14px;
     background-color: #d1d5db; 
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
     overflow: hidden; 
@@ -136,7 +143,7 @@ body {
     
     /* Fixes the cropping issue */
     object-fit: cover; 
-    object-position: center 20%; /* Focuses on face/hair */
+    /* object-position: center 20%;  */
 }
 
 /* .avatar {
@@ -157,7 +164,7 @@ body {
 .profile-info .name {
     font-family: 'Playfair Display';
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #000;
 }
 
@@ -165,6 +172,7 @@ body {
     font-weight: 400;
     font-size: 1rem;
     color: #888;
+    margin-bottom: 1rem;
 }
 
 /* TYPOGRAPHY */
@@ -190,8 +198,11 @@ h1 {
 
 /* BUTTONS */
 .cta-group {
+    /* position: absolute;
+    bottom: 1rem;
+    right: 1rem; */
     display: flex;
-    gap: 12px;
+    /* gap: 12px; */
 }
 
 .btn {
@@ -414,8 +425,7 @@ h1 {
 /* --- SYNCHRONIZED ANIMATIONS --- */
 
 /* 1. The Stick (Moves Up then Shoots Down) */
-/* --- UPDATE KEYFRAMES --- */
-/* --- 1. THE STICK (Fast Drop) --- */
+
 @keyframes line-arrow {
     0% {
         transform: translate(-50%, -50%);
@@ -494,11 +504,11 @@ h1 {
 
 /* PROJECTS SECTION */
 .projects-container {
-    margin-top: 80px;
+    margin-top: 32px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 150px;
 }
 
 .project-card {
@@ -569,7 +579,8 @@ h1 {
 
 /* EXPERIENCE SECTION */
 .experience-container {
-    margin-top: 80px;
+    margin-top: 100px;
+    margin-bottom: 150px;
     width: 100%;
 }
 
@@ -673,8 +684,7 @@ details[open] summary .chevron {
 
 /* SKILLS SECTION */
 .skills-container {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 150px;
     width: 100%;
 }
 
@@ -947,3 +957,62 @@ details[open] summary .chevron {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* --- GRID SETUP --- */
+.editorial-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr; /* Adjust ratios for a luxury feel */
+    min-height: 100vh;
+    /* background: #ffffff; */
+    background-color: #1d1d1d;
+}
+
+/* --- LEFT COLUMN: FIXED NARRATOR --- */
+.left-panel {
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Takes full screen height */
+    display: flex;
+    align-items: center; /* Vertically centers your dynamic text */
+    padding: 0 10%;
+    /* background-color: #ffffff; */
+    background-color: #1d1d1d;
+    z-index: 10;
+}
+
+.sticky-wrapper {
+    width: 100%;
+}
+
+#dynamic-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #eeeeee;
+    line-height: 1.1;
+    /* color: #111111; */
+    transition: color 0.3s ease;
+    /* transition: opacity 0.4s ease, transform 0.4s ease; */
+}
+
+/* --- RIGHT COLUMN: SCROLLING WORK --- */
+.right-panel {
+    padding: 15vh 8% 30vh 8%; /* Top/Bottom padding allows text to trigger center-screen */
+}
+
+/* Mobile Responsiveness: Stack columns on smaller screens */
+@media (max-width: 1024px) {
+    .editorial-layout {
+        grid-template-columns: 1fr;
+    }
+    .left-panel {
+        position: relative;
+        height: auto;
+        padding: 60px 5%;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    #dynamic-text {
+        font-size: 2.5rem;
+    }
+}
+
