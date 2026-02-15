@@ -1,0 +1,522 @@
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: #000;
+    /* or your dark theme color */
+    color: #fff;
+}
+
+/* --- BASE STYLES --- */
+
+
+:root {
+    --bg-color: #FDFCF8;
+    --text-color: #1a1a1a;
+    --accent-color: #666;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- GRID LAYOUT --- */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    /* Fixed Left, Fluid Middle/Right */
+    gap: 60px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* --- COLUMN 1: LEFT (Sidebar) --- */
+.col-left {
+    position: sticky;
+    top: 40px;
+    /* Sticks 40px from the top */
+    max-height: calc(100vh - 80px);
+    /* Height is full screen minus padding */
+    overflow-y: auto;
+    /* <--- THIS IS THE MAGIC FIX */
+    display: flex;
+    flex-direction: column;
+
+    /* Hides the ugly scrollbar but keeps scrolling functional */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.col-left::-webkit-scrollbar {
+    display: none;
+}
+
+.col-left header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+/* Typography */
+h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 0.9;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Typewriter Styles */
+.role-container {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    /* Code font for "I AM A..." */
+    line-height: 1.6;
+    color: var(--accent-color);
+    min-height: 3em;
+    /* Prevents layout jump when typing */
+}
+
+.highlight {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: var(--text-color);
+    animation: blink 1s infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Expertise & Contact Sections */
+.info-sections {
+    margin-top: 40px;
+}
+
+.nav-group {
+    margin-bottom: 40px;
+}
+
+.nav-group h3 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.nav-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Add this anywhere in your CSS, preferably near the Header styles */
+
+.profile-pic {
+    display: block;
+    margin-bottom: 16px;
+    margin-top: 0;
+    width: 80px;
+    /* Size of the circle */
+    height: 80px;
+    /* Must match width */
+    object-fit: cover;
+    /* Prevents stretching if image is rectangular */
+    /* Makes it a perfect circle */
+    filter: grayscale(100%);
+    /* Optional: Makes it B&W to match the theme */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Hover effect to bring back color */
+.profile-pic:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.nav-group li,
+.nav-group a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.nav-group a:hover {
+    font-style: italic;
+    transform: translateX(5px);
+    /* Slide right on hover */
+}
+
+.copyright {
+    margin-top: 24px;
+    /* Space between Button and Copyright */
+    font-size: 0.65rem;
+    /* Keep it small and subtle */
+    color: #999;
+    /* Light grey */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+}
+
+.click-instruction {
+    font-family: 'Space Mono', monospace;
+    /* Matches your tech tags */
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    /* Keeps it subtle so it doesn't distract */
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    /* Adds a clean separator line */
+    padding-top: 15px;
+}
+
+.project-link {
+    text-decoration: none;
+    /* Removes underlines */
+    display: block;
+    /* Ensures the entire area is clickable */
+    cursor: pointer;
+    /* Shows the 'hand' icon on hover */
+    color: inherit;
+    /* Keeps your text colors the same */
+}
+
+/* Optional: Add a subtle lift effect when hovering over a project */
+.project-link:hover .project-image {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+
+/* --- COLUMN 2: MIDDLE (Sticky Project Info) --- */
+.sticky-text-container {
+    position: sticky;
+    top: 60px;
+    padding-right: 40px;
+    opacity: 0;
+    /* Hidden by default until JS loads */
+    transition: opacity 0.5s ease;
+}
+
+#project-title {
+    margin-top: 0;
+    line-height: 1;
+    padding-top: 0;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    /* Space between Status and Name */
+    /* Keep your existing styling below */
+    font-size: 0.75rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Keep your existing pulse-dot animation code as is! */
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00cc66;
+    /* Bright Green */
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0, 204, 102, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 204, 102, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(0, 204, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 204, 102, 0);
+    }
+}
+
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    /* Makes it full width of the sidebar column */
+
+    margin-top: 20px;
+    padding: 12px 24px;
+
+    background-color: var(--text-color);
+    /* Black Background */
+    color: var(--bg-color);
+    /* White Text */
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+    /* Slightly rounded corners */
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+    background-color: transparent;
+    /* Transparent on hover */
+    color: var(--text-color);
+    /* Black text */
+    transform: translateY(-2px);
+    border: 1px solid var(--text-color);
+}
+
+#project-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+/* Add this near your #project-desc styles */
+
+#project-desc code {
+    font-family: var(--font-mono);
+    /* Uses Space Mono */
+    font-size: 0.85em;
+    /* Monospace is usually large, so shrink it slightly */
+    font-weight: 400;
+    /* Keep it normal weight, not bold */
+    background-color: #f0f0f0;
+    /* Optional: Adds a subtle light grey background like Notion code */
+    padding: 2px 5px;
+    /* slight breathing room */
+    border-radius: 4px;
+    /* soft corners */
+    color: #333;
+    /* Dark grey text */
+}
+
+.tech-stack {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    display: inline-block;
+    letter-spacing: 0.05em;
+}
+
+
+/* --- COLUMN 3: RIGHT (Images) --- */
+.col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    /* Big spacing between projects */
+    padding-bottom: 30vh;
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #eee;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    opacity: 0.3;
+    /* Faded by default */
+    filter: grayscale(100%);
+    /* Black & White by default */
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Active State (Triggered by Scroll) */
+.project-image.active {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* Prevent technical charts from being cropped */
+.project-image[data-title="Air Quality Monitor"] img,
+.project-image[data-title="Object Detection"] img,
+.project-image[data-title="Card Shop"] img {
+    object-fit: contain;
+    background-color: #fff;
+    /* Adds a clean white background if the image shape is different */
+}
+
+.project-image[data-title="Card Shop"] img {
+    image-rendering: -webkit-optimize-contrast;
+    /* For Chrome/Edge/Safari */
+    image-rendering: crisp-edges;
+    /* For Firefox */
+}
+
+.spacer {
+    height: 20vh;
+}
+
+/* --- MOBILE --- */
+
+/* MOBILE VIEW: Screens smaller than 768px */
+/* --- MOBILE REVOLUTION --- */
+
+/* --- MOBILE RESPONSIVE FIX (Screens < 768px) --- */
+/* --- MOBILE RESPONSIVE RESET (< 768px) --- */
+@media (max-width: 768px) {
+    /* 1. Reset parent to a 2-column flow */
+    .layout-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; 
+        grid-template-rows: auto auto; 
+        gap: 20px !important;
+        padding: 20px !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+
+    /* 2. Top: Sidebar (About Me) - Full Width */
+    .col-left {
+        grid-column: 1 / span 2; 
+        width: 100% !important;
+        position: relative !important;
+        top: 0 !important;
+        max-height: none !important;
+        border-right: none !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        margin-bottom: 30px !important;
+    }
+
+    /* 3. Middle & Right: Synced Scroll Logic */
+    /* By making these relative, text and images move together */
+    .col-middle, .sticky-text-container {
+        grid-column: 1; 
+        display: block !important;
+        position: relative !important; 
+        top: 0 !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        padding-right: 10px !important;
+    }
+
+    .col-right {
+        grid-column: 2; 
+        display: flex !important;
+        flex-direction: column !important;
+        /* Adjusted gap to keep text and images aligned vertically */
+        gap: 120px !important; 
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 4. Mobile Typography & Image Fixes */
+    #project-title {
+        font-size: 1.2rem !important; 
+        margin-top: 0;
+        line-height: 1.2;
+    }
+
+    #project-desc {
+        font-size: 0.75rem !important;
+        max-width: 100% !important;
+        line-height: 1.4;
+    }
+
+    .project-image {
+        opacity: 1 !important;
+        filter: none !important;
+        width: 100% !important;
+        aspect-ratio: 1/1 !important;
+        position: relative !important;
+    }
+
+    /* 5. Hide Desktop-only spacers */
+    .spacer {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* 1. Un-hide the images fully */
+    .project-image {
+        opacity: 1;
+        filter: none;
+        margin-bottom: 40px;
+        position: relative;
+        /* Needed for the magic below */
+    }
+
+    /* 2. Inject the Title using CSS */
+    .project-image::after {
+        content: attr(data-title) " | " attr(data-stack);
+        /* Grabs text from your HTML */
+        display: block;
+        margin-top: 10px;
+
+        /* Typography */
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-color);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+    }
+}
