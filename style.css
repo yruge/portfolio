@@ -410,6 +410,66 @@ h1 {
     height: 20vh;
 }
 
+@media (max-width: 480px) {
+
+    .layout-grid {
+        /* Change from "350px 1fr 1fr" to a tighter sidebar */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr !important;
+        gap: 20px;
+    }
+
+    .col-left {
+        grid-column: 1 / -1 !important;
+        width: 100%;
+    }
+
+    .col-left header {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .status {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .info-sections {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    .resume-btn {
+        width: 100%;
+        padding: 6px 12px;
+    }
+
+    .col-left h1 {
+        display: none;
+    }
+
+    .col-middle {
+        grid-column: 1;
+    }
+
+    .col-right {
+        grid-column: 2;
+    }
+    
+    /* 4. Mobile Typography & Image Fixes */
+     .project-image {
+        opacity: 1 !important;
+        filter: none !important;
+        width: 100% !important;
+        aspect-ratio: 1/1 !important;
+        position: relative !important;
+    }
+}
+
+
 /* --- MOBILE --- */
 
 /* MOBILE VIEW: Screens smaller than 768px */
@@ -418,68 +478,22 @@ h1 {
 /* --- MOBILE RESPONSIVE FIX (Screens < 768px) --- */
 /* --- MOBILE RESPONSIVE RESET (< 768px) --- */
 @media (max-width: 768px) {
+
     /* 1. Reset parent to a 2-column flow */
     .layout-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important; 
-        grid-template-rows: auto auto; 
+        /* Change from "350px 1fr 1fr" to a tighter sidebar */
+        grid-template-columns: 240px 1.2fr 1fr !important;
         gap: 20px !important;
-        padding: 20px !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-    
-
-    /* 2. Top: Sidebar (About Me) - Full Width */
-    .col-left {
-        grid-column: 1 / span 2; 
-        width: 100% !important;
-        position: relative !important;
-        top: 0 !important;
-        max-height: none !important;
-        border-right: none !important;
-        padding-bottom: 20px !important;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        margin-bottom: 30px !important;
+        /* Reduce gap to save space */
+        padding: 20px 20px;
     }
 
-    /* 3. Middle & Right: Synced Scroll Logic */
-    /* By making these relative, text and images move together */
-    .col-middle, .sticky-text-container {
-        grid-column: 1; 
-        display: block !important;
-        position: relative !important; 
-        top: 0 !important;
-        opacity: 1 !important;
-        width: 100% !important;
-        height: auto !important;
-        padding-right: 10px !important;
-    }
-
-    .col-right {
-        grid-column: 2; 
-        display: flex !important;
-        flex-direction: column !important;
-        /* Adjusted gap to keep text and images aligned vertically */
-        gap: 120px !important; 
-        width: 100% !important;
-        height: auto !important;
+    .sticky-text-container {
+        padding: 0px 20px 0px 0px;
     }
 
     /* 4. Mobile Typography & Image Fixes */
-    #project-title {
-        font-size: 1.2rem !important; 
-        margin-top: 0;
-        line-height: 1.2;
-    }
-
-    #project-desc {
-        font-size: 0.75rem !important;
-        max-width: 100% !important;
-        line-height: 1.4;
-    }
-
-    .project-image {
+     .project-image {
         opacity: 1 !important;
         filter: none !important;
         width: 100% !important;
@@ -495,13 +509,48 @@ h1 {
 
 @media (max-width: 1024px) {
 
-    /* 1. Un-hide the images fully */
-    .project-image {
-        opacity: 1;
-        filter: none;
-        margin-bottom: 40px;
-        position: relative;
-        /* Needed for the magic below */
+    /* 1. Shrink the Sidebar to give text more room */
+    .layout-grid {
+        /* Change from "350px 1fr 1fr" to a tighter sidebar */
+        grid-template-columns: 240px 1.2fr 1fr !important;
+        gap: 20px !important;
+        /* Reduce gap to save space */
+        padding: 20px 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    /* 2. Adjust Sidebar Text size */
+    .col-left {
+        max-height: calc(100vh - 50px);
+    }
+
+    .col-middle {
+        position: sticky;
+        justify-content: flex-start;
+        top: 0px !important;
+    }
+
+    /* 3. Make the Project Description (Middle Col) Fluid */
+
+    /* Fluid Typography: Scales smoothly between sizes */
+    #project-desc {
+        font-size: clamp(0.9rem, 1.5vw, 1rem) !important;
+        line-height: 1.5 !important;
+        max-width: 100% !important;
+        /* Ensure it uses full column width */
+    }
+
+    /* Resize the big title so it doesn't break lines awkwardly */
+    #project-title {
+        font-size: clamp(2rem, 4vw, 3rem) !important;
+    }
+
+    /* 4. Optional: Adjust Image column if needed */
+    .col-right {
+        gap: 60px !important;
     }
 
     /* 2. Inject the Title using CSS */
@@ -510,6 +559,7 @@ h1 {
         /* Grabs text from your HTML */
         display: block;
         margin-top: 10px;
+
 
         /* Typography */
         font-family: var(--font-mono);
