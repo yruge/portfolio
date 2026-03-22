@@ -1,4 +1,60 @@
 
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".col-left", {
+    x: -50,          // Starts 50px to the left
+    opacity: 0,      // Starts invisible
+    duration: 1.2,   // Takes 1.2 seconds
+    ease: "power3.out" // Smooth deceleration
+});
+
+const resumeBtn = document.querySelector('.resume-btn');
+const arrow = document.querySelector('.btn-arrow');
+const progressBar = document.querySelector('.progress-bar');
+const btnText = document.querySelector('.btn-text');
+
+// 1. Hover Effect: Smoothly bounce the arrow
+let hoverAnim = gsap.to(arrow, {
+    y: 4,
+    repeat: -1,
+    yoyo: true,
+    duration: 0.3,
+    paused: true,
+    ease: "power1.inOut"
+});
+
+resumeBtn.addEventListener("mouseenter", () => hoverAnim.play());
+resumeBtn.addEventListener("mouseleave", () => {
+    hoverAnim.pause();
+    gsap.to(arrow, { y: 0, duration: 0.2 }); // Reset arrow position seamlessly
+});
+
+// 2. Click Effect: The "Downloading" Sequence
+resumeBtn.addEventListener("click", () => {
+    // Note: The file will still download natively because of the HTML 'download' attribute
+
+    gsap.to(progressBar, {
+        width: "100%",
+        duration: 1.5,
+        ease: "power2.inOut",
+        onStart: () => {
+            btnText.innerText = "Downloading...";
+            arrow.style.opacity = "0"; // Hide arrow during download
+        },
+        onComplete: () => {
+            btnText.innerText = "Downloaded ✓";
+
+            // Fade out the bar and reset everything after 2 seconds
+            gsap.to(progressBar, { opacity: 0, duration: 0.5, delay: 1 });
+            setTimeout(() => {
+                btnText.innerText = "Download CV";
+                arrow.style.opacity = "1";
+                gsap.set(progressBar, { width: "0%", opacity: 1 });
+            }, 2500);
+        }
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // --- PART 1: TYPEWRITER EFFECT ---
@@ -44,51 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start typing
     type();
 
+},
 
-    // --- PART 2: SCROLL OBSERVER (For Middle Column) ---
-    const images = document.querySelectorAll('.project-image');
-    const titleEl = document.getElementById('project-title');
-    const descEl = document.getElementById('project-desc');
-    const stackEl = document.getElementById('project-stack');
-    const textContainer = document.querySelector('.sticky-text-container');
-
-    // Make text visible immediately
-    textContainer.style.opacity = 1;
-
-    const observerOptions = {
-        root: null,
-        rootMargin: "-20% 0px -20% 0px", // Trigger when image is near center of screen
-        threshold: 0.5
-    };
-
-    const observerCallback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // 1. Highlight the Image
-                images.forEach(img => img.classList.remove('active'));
-                entry.target.classList.add('active');
-
-                // 2. Update the Text (Middle Col)
-                // We do a quick fade-out/fade-in for smoothness
-                textContainer.style.opacity = 0;
-
-                setTimeout(() => {
-                    titleEl.textContent = entry.target.getAttribute('data-title');
-                    descEl.innerHTML = entry.target.getAttribute('data-desc');
-                    stackEl.textContent = entry.target.getAttribute('data-stack');
-                    textContainer.style.opacity = 1;
-                }, 200);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    images.forEach(image => observer.observe(image));
-});
-
-
-console.log(
-    "%c Looking for a dev? %c Let's talk: jason.then@binus.ac.id ",
-    "background: #000; color: #fff; padding: 5px; border-radius: 3px; font-weight: bold;",
-    "background: transparent; color: #000; padding: 5px;"
-);
+    console.log(
+        "%c Looking for a dev? %c Let's talk: jasonjthen.dev@gmail.com",
+        "background: #000; color: #fff; padding: 5px; border-radius: 3px; font-weight: bold;",
+        "background: transparent; color: #000; padding: 5px;"
+    ))
